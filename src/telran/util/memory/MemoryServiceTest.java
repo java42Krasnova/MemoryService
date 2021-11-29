@@ -18,6 +18,7 @@ byte ar[];
 int maxSize = MemoryService.getMaxAvailableMemory()	;
 ar = new byte [maxSize];// normal allocation
 ar = null;
+System.out.println(maxSize);
 boolean fl = false;
 try {
 	ar = new byte[maxSize + 1];

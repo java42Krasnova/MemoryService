@@ -6,15 +6,17 @@ public static int getMaxAvailableMemory(){
 	int right = maxMemory> Integer.MAX_VALUE?  Integer.MAX_VALUE: (int) maxMemory;
 	int left = 0;
 	int maxSize = 0;
+	int middle = 0;
 	byte ar[] ;
 	while (left <= right) {
-		maxSize = (left+right)/2;
-		ar = null;
-		try { 
-			ar = new byte[maxSize];
-			left = maxSize + 1;
+		middle = (int)((long)left+right)/2;
+		try { 	
+			ar = new byte[middle];
+			maxSize = middle;
+			left = middle + 1;
+			ar=null;
 		} catch (Throwable e) {
-			right = maxSize-1;
+			right = middle-1;
 		}
 	}
 	return maxSize;
